@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <ctype.h>
+
+char menu() {
+    char opcao;
+    printf("Selecione o que você deseja realizar.\n");
+    printf("1. km>>>milhas\n");
+    printf("2. milhas>>>km\n");
+    printf("3. kg>>>lb\n");
+    printf("4. lb>>>kg\n");
+    printf("5. m>>>pés\n");
+    printf("6. pés>>>m\n");
+    scanf(" %c" , &opcao);
+    return opcao;
+}
+void kmMi (float n1) {
+    printf (" Em Milhas é %.1f" , n1* 0.621371 );
+}
+void miKm (float n1) {
+    printf("Em km é %.1f" , n1/ 0.621371);
+}
+void kgLb (float n1) {
+    printf("Em libras é %.1f" , n1*2.20462);
+}
+void lbKg (float n1) {
+    printf("Em kg é %.1f" , n1/2.20462);
+}
+void mPes (float n1) {
+    printf(" Em pés é %.1f" , n1 * 3.28084);
+}
+void pesM (float n1) {
+    printf(" em metros é %.1f" , n1 / 3.28084);
+
+}
+
+int main() {
+    float n1;
+    printf("Digite o número que deseja converter:\n");
+    scanf("%f" , &n1);
+    
+    char Operador = menu();
+    Operador=toupper(Operador);
+    switch (Operador){
+        case '1' : kmMi(n1);break;
+        case '2' : miKm(n1);break;
+        case '3' : kgLb(n1);break;
+        case '4' : lbKg(n1);break;
+        case '5' : mPes(n1);break;
+        case '6' : pesM(n1);break;
+   default : printf("Opção inválida");
+    }
+}
